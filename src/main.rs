@@ -1,6 +1,6 @@
 use yew::prelude::*; 
 mod components;
-
+static REPO: &str = "personal_website";
 use yew_router::prelude::*;
 use components::{
     about_me::AboutMe as AboutMe,
@@ -19,28 +19,28 @@ pub struct Props {
 
 #[derive(Clone, Routable, PartialEq)]
 enum Route {
-    #[at("/")]
+    #[at("/personal_website/")]
     Home,
-    #[at("/about_me")]
+    #[at("/personal_website/about_me")]
     AboutMe,
-    #[at("/contact")]
+    #[at("/personal_website/contact")]
     Contact,
-    #[at("/resume")]
+    #[at("/personal_website/resume")]
     Resume,
-    #[at("/blog")]
+    #[at("/personal_website/blog")]
     Blog,
-    #[at("/projects")]
+    #[at("/personal_website/projects")]
     Projects,
-    #[at("/papers")]
+    #[at("/personal_website/papers")]
     Papers,
-    #[at("/blogpost/:title")]
+    #[at("/personal_website/blogpost/:title")]
     Blogpost { title: String },
-    #[at("/projectpost/:title")]
+    #[at("/personal_website/projectpost/:title")]
     Projectpost { title: String },
-    #[at("/paperpost/:title")]
+    #[at("/personal_website/paperpost/:title")]
     Paperpost { title: String },
     #[not_found]
-    #[at("/404")]
+    #[at("/personal_website/404")]
     NotFound,
 }
 
