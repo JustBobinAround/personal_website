@@ -8,6 +8,8 @@ use components::{
     resume::Resume as Resume,
     blog::Blog as Blog,
     projects::Projects as Projects,
+    papers::Papers as Papers,    
+    markdown_component::MarkdownComponent as Markdown,
 };
 
 #[derive(Properties, PartialEq)]
@@ -29,6 +31,14 @@ enum Route {
     Blog,
     #[at("/projects")]
     Projects,
+    #[at("/papers")]
+    Papers,
+    #[at("/blogpost/:title")]
+    Blogpost { title: String },
+    #[at("/projectpost/:title")]
+    Projectpost { title: String },
+    #[at("/paperpost/:title")]
+    Paperpost { title: String },
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -38,8 +48,9 @@ enum Route {
 
 
 
-
-fn switch(routes: Route) -> Html {
+fn switch(routes: Route ) -> Html {
+    let markdown = "# Hello, World!";
+    
     match routes {
         Route::Home => html! { 
             <AboutMe />
@@ -59,6 +70,24 @@ fn switch(routes: Route) -> Html {
         Route::Projects => html! { 
             <Projects />
         },
+        Route::Papers => html! {
+            <Papers />
+        },
+        Route::Blogpost { title } => html! {
+            <p>{format!("You are looking at Blogpost {}", title)}</p>
+        },
+        Route::Projectpost { title } => html! {
+            <p>{format!("You are looking at Projectpost {}", title)}</p>
+        },
+        Route::Paperpost { title } => html! {
+            <p>{format!("You are looking at Paperpost {}", title)}</p>
+        },
+
+
+
+        //Route::Post => html! {
+          //  <Markdown markdown={markdown}/>
+        //},
         Route::NotFound => html! {
             <div class="reader-mode">
                 <h1>{ "404" }</h1> 
@@ -79,6 +108,7 @@ fn App() -> Html {
                 <a href="/resume">{"Resume"}</a>
                 <a href="/blog">{"Blog"}</a>
                 <a href="/projects">{"Projects"}</a>
+                <a href="/papers">{"Papers"}</a>
             </nav>
             <BrowserRouter>
                 <Switch<Route> render={switch} /> // <- must be child of <BrowserRouter>
@@ -87,8 +117,6 @@ fn App() -> Html {
             <hr/>
             <pre >{"
  * Copyright 2022-2023 Robert Junkins. 
- * All opinions within this web application do not represent 
- * any of my employer; Future, Past, or Present
 "}</pre>
         </div>
 

@@ -5,8 +5,10 @@ pub fn resume() -> Html{
     html! {
         <div>
             <h1>{ "Resume" }</h1>
-            
-            <p>{""}</p>
+
+            <embed src="resume.html.pdf" width="100%" height="600px" 
+ type="application/pdf" />
+
         </div>
     }
 }

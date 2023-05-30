@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 yew = { version = "0.20.0", features = ["csr"]}
 yew-router = "0.17"
+pulldown-cmark = "0.9.3"
+gloo-utils = "0.1.6"
