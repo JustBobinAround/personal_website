@@ -8,9 +8,10 @@ install:
 	rustup target add wasm32-unknown-unknow
 	cargo install --locked trunk
 
-deploy:
+deployment_build:
 	trunk build --release --public-url personal_website
-	git commit -a
+
+deploy:
 	git push -u origin main
 	git subtree push --prefix dist origin gh-pages
 

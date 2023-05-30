@@ -19,28 +19,28 @@ pub struct Props {
 
 #[derive(Clone, Routable, PartialEq)]
 enum Route {
-    #[at("/personal_website/")]
+    #[at("/")]
     Home,
-    #[at("/personal_website/about_me")]
+    #[at("/about_me")]
     AboutMe,
-    #[at("/personal_website/contact")]
+    #[at("/contact")]
     Contact,
-    #[at("/personal_website/resume")]
+    #[at("/resume")]
     Resume,
-    #[at("/personal_website/blog")]
+    #[at("/blog")]
     Blog,
-    #[at("/personal_website/projects")]
+    #[at("/projects")]
     Projects,
-    #[at("/personal_website/papers")]
+    #[at("/papers")]
     Papers,
-    #[at("/personal_website/blogpost/:title")]
+    #[at("/blogpost/:title")]
     Blogpost { title: String },
-    #[at("/personal_website/projectpost/:title")]
+    #[at("/projectpost/:title")]
     Projectpost { title: String },
-    #[at("/personal_website/paperpost/:title")]
+    #[at("/paperpost/:title")]
     Paperpost { title: String },
     #[not_found]
-    #[at("/personal_website/404")]
+    #[at("/404")]
     NotFound,
 }
 
@@ -103,12 +103,12 @@ fn App() -> Html {
         <div class="reader-mode">
 
             <nav>               
-                <a href="/personal_website/about_me" style="">{"Robert Junkins"}</a>
-                <a href="/personal_website/contact">{"Contact"}</a>
-                <a href="/personal_website/resume">{"Resume"}</a>
-                <a href="/personal_website/blog">{"Blog"}</a>
-                <a href="/personal_website/projects">{"Projects"}</a>
-                <a href="/personal_website/papers">{"Papers"}</a>
+                <a href="/about_me" style="">{"Robert Junkins"}</a>
+                <a href="/contact">{"Contact"}</a>
+                <a href="/resume">{"Resume"}</a>
+                <a href="/blog">{"Blog"}</a>
+                <a href="/projects">{"Projects"}</a>
+                <a href="/papers">{"Papers"}</a>
             </nav>
             <BrowserRouter>
                 <Switch<Route> render={switch} /> // <- must be child of <BrowserRouter>
