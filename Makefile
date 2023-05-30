@@ -11,7 +11,7 @@ install:
 deploy:
 	trunk build --release --public-url personal_website
 	git commit -a
-	git push - u origin master
+	git push -u origin master
 	git subtree push --prefix dist origin gh-pages
 
 documents: ./doc_src/personal_website.tex
