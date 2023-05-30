@@ -103,12 +103,12 @@ fn App() -> Html {
         <div class="reader-mode">
 
             <nav>               
-                <a href="/about_me" style="">{"Robert Junkins"}</a>
-                <a href="/contact">{"Contact"}</a>
-                <a href="/resume">{"Resume"}</a>
-                <a href="/blog">{"Blog"}</a>
-                <a href="/projects">{"Projects"}</a>
-                <a href="/papers">{"Papers"}</a>
+                <a href="/personal_website/about_me" style="">{"Robert Junkins"}</a>
+                <a href="/personal_website/contact">{"Contact"}</a>
+                <a href="/personal_website/resume">{"Resume"}</a>
+                <a href="/personal_website/blog">{"Blog"}</a>
+                <a href="/personal_website/projects">{"Projects"}</a>
+                <a href="/personal_website/papers">{"Papers"}</a>
             </nav>
             <BrowserRouter>
                 <Switch<Route> render={switch} /> // <- must be child of <BrowserRouter>
