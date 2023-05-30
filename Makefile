@@ -8,6 +8,11 @@ install:
 	rustup target add wasm32-unknown-unknow
 	cargo install --locked trunk
 
+deploy:
+	trunk build --release --public-url personal_website
+	git commit -a
+	git push - u origin master
+	git subtree push --prefix dist origin gh-pages
 
 documents: ./doc_src/personal_website.tex
 	pdflatex -output-directory=./doc_out/ ./doc_src/personal_website.tex
