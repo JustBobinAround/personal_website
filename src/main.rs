@@ -110,7 +110,7 @@ fn App() -> Html {
                 <a href="/projects">{"Projects"}</a>
                 <a href="/papers">{"Papers"}</a>
             </nav>
-            <BrowserRouter>
+            <BrowserRouter basename="/personal_website">
                 <Switch<Route> render={switch} /> // <- must be child of <BrowserRouter>
             </BrowserRouter>
             <br/>
