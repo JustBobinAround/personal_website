@@ -11,6 +11,9 @@ install:
 deployment_build:
 	trunk build --release --public-url personal_website
 
+deployment_serve:
+	trunk serve --release --public-url personal_website
+
 deploy:
 	git push -u origin main
 	git subtree push --prefix dist origin gh-pages
