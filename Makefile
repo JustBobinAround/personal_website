@@ -1,18 +1,15 @@
-run:
-	trunk serve --release
+run: markdown
+	trunk serve --release --public-url personal_website
 
-build:
-	trunk build --release
+build: markdown
+	trunk build --release --public-url personal_website
 
 install:
 	rustup target add wasm32-unknown-unknow
 	cargo install --locked trunk
 
-deployment_build:
-	trunk build --release --public-url personal_website
-
-deployment_serve:
-	trunk serve --release --public-url personal_website
+markdown:
+	sh ./build_scripts/build_markdown_lists.sh
 
 deploy:
 	git push -u origin main

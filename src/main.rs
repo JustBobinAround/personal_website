@@ -1,15 +1,17 @@
 use yew::prelude::*; 
 mod components;
+
 static REPO: &str = "personal_website";
 use yew_router::prelude::*;
 use components::{
     about_me::AboutMe as AboutMe,
     contact::ContactMe as ContactMe,
     resume::Resume as Resume,
-    blog::Blog as Blog,
+    bloglist::Bloglist as Bloglist,
     projects::Projects as Projects,
     papers::Papers as Papers,    
     markdown_component::MarkdownComponent as Markdown,
+    blogpost::Blogpost as Blogpost,
 };
 
 #[derive(Properties, PartialEq)]
@@ -28,17 +30,13 @@ enum Route {
     #[at("/resume")]
     Resume,
     #[at("/blog")]
-    Blog,
+    Bloglist,
     #[at("/projects")]
     Projects,
     #[at("/papers")]
     Papers,
-    #[at("/blogpost/:title")]
+    #[at("/blogposts/:title")]
     Blogpost { title: String },
-    #[at("/projectpost/:title")]
-    Projectpost { title: String },
-    #[at("/paperpost/:title")]
-    Paperpost { title: String },
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -49,7 +47,6 @@ enum Route {
 
 
 fn switch(routes: Route ) -> Html {
-    let markdown = "# Hello, World!";
     
     match routes {
         Route::Home => html! { 
@@ -64,8 +61,8 @@ fn switch(routes: Route ) -> Html {
         Route::Resume => html! { 
             <Resume />
         },
-        Route::Blog => html! { 
-            <Blog />
+        Route::Bloglist => html! { 
+            <Bloglist />
         },
         Route::Projects => html! { 
             <Projects />
@@ -74,20 +71,8 @@ fn switch(routes: Route ) -> Html {
             <Papers />
         },
         Route::Blogpost { title } => html! {
-            <p>{format!("You are looking at Blogpost {}", title)}</p>
+            <Blogpost title={title}/>
         },
-        Route::Projectpost { title } => html! {
-            <p>{format!("You are looking at Projectpost {}", title)}</p>
-        },
-        Route::Paperpost { title } => html! {
-            <p>{format!("You are looking at Paperpost {}", title)}</p>
-        },
-
-
-
-        //Route::Post => html! {
-          //  <Markdown markdown={markdown}/>
-        //},
         Route::NotFound => html! {
             <div class="reader-mode">
                 <h1>{ "404" }</h1> 
