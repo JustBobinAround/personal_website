@@ -11,6 +11,9 @@ install:
 markdown:
 	sh ./build_scripts/build_markdown_lists.sh
 
+new-post:
+	sh ./build_scripts/new_blogpost.sh
+
 deploy:
 	git push -u origin main
 	git subtree push --prefix dist origin gh-pages

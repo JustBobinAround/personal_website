@@ -19,9 +19,11 @@ for file in "$directory"/*; do
     
     # Create the new file path for the link
     new_file_path="#/blogposts/$filename"
-    
+
+    # Replace underscores with spaces in the file name
+    filename=$(echo "$filename" | tr '_' ' ')
     # Create a clickable link for the file
-    link="[${filename}]($new_file_path)"
+    link="[${filename%.*}]($new_file_path)"
     
     # Append the link to the markdown file
     echo "- $link" >> "$markdown_file"
