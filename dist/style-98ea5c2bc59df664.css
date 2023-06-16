@@ -12,7 +12,7 @@ body {
 }
 
 h1::before {
-    content: "{"; 
+    content: "{ "; 
     color: #C586C0;
 } 
 h1 { 
@@ -26,12 +26,31 @@ h1 {
     color: #88DCFE;
 } 
 h1::after { 
-    content: "}"; 
+    content: " }"; 
     color: #C586C0;
 } 
 
 
 
+h2::before {
+    content: "<"; 
+    color: #808080;
+} 
+h2 {
+    margin-top: 40px;
+    margin-left: 5px;
+    font-family: Droid Sans Mono; 
+    font-size: 17px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 10px; 
+    color: #569CD6;
+}
+h2::after {
+    content: " />"; 
+    color: #808080;
+} 
 h3::before {
     content: "<"; 
     color: #808080;
@@ -48,7 +67,7 @@ h3 {
     color: #569CD6;
 }
 h3::after {
-    content: "/>"; 
+    content: " />"; 
     color: #808080;
 } 
 
